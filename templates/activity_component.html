@@ -1,0 +1,32 @@
+{%load static%}
+<link rel="stylesheet" href = "{% static 'style/main.css' %}">
+
+<div class="activity-component rounded d-none d-lg-flex flex-column mt-5">
+
+<h3 class="text-center pt-4 pb-4 rounded recent-h">Recent Activity</h3>
+        <div>
+            {% for message in room_messages %}
+            
+            <div class="message-element p-3 m-4 rounded-3">
+
+                {% if request.user == message.user %}
+                <a href="/delete-message/{{message.id}}" class="delete-button">Delete</a>
+                <br>
+                {% else %}
+            
+                {% endif %}
+                <div class = "post-detail py-3">
+                    
+                <small><a href="{% url 'profile-page' message.user.id %}" class="usertag">@{{message.user.username}}</a></small><small> {{ message.created|timesince }} ago</small>
+                </div>
+                <a href="{% url 'room' message.room.id %}">
+                <small>replied to {{ message.room }}</small>
+                    <p>{{message}}..</p>
+                </a>
+                
+            </div>
+            
+            {% endfor %}
+        
+</div>    
+</div>

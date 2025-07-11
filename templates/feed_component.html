@@ -1,0 +1,40 @@
+{%load static%}
+<link rel="stylesheet" href = "{% static 'style/main.css' %}">
+
+<div class="feed-component">
+{% for room in rooms %}
+
+<div class="feed-element mt-5 p-4 rounded">
+    {% if room.host == request.user %}
+    <div class="room-controls d-flex justify-content-between mb-2">
+        <a href="/update-room/{{room.id}}">Edit</a>
+        <a href="/delete-room/{{room.id}}" class="p-2 rounded-1">Delete</a>
+    </div>
+    {% endif %}
+    
+    <div class="d-flex align-items-center gap-2 mb-2">
+        {% if room.host.profile and room.host.profile.profile_pic %}
+                <a href="{% url 'profile-page' room.host.id %}">
+                <img src="{{ room.host.profile.profile_pic.url }}" class="pfp-img rounded-circle p-1" width="40" height="40" style="object-fit: cover;">
+                </a>
+        {% else %}
+                    <a href="{% url 'profile-page' room.host.id %}">
+            <img src="{% static 'images/avatar-1577909_1280.png' %}" class="pfp-img rounded-circle p-1" width="40" height="40">
+                    </a>
+        {% endif %}
+        <a href="{% url 'profile-page' room.host.id %}" class="usertag mx-1 rounded-pill">@{{ room.host.username }}</a>
+    </div>
+
+    <h3><a href="{% url 'room' room.id %}">{{ room.name }}</a></h3>
+    <hr>
+    <div class="d-flex justify-content-between">
+    <div class="d-flex">
+    <i class="fa-regular fa-user mt-1" style="color: #6cb3bb; font-size:18px"></i><p class="mx-3" style="word-spacing: 3px">{{ room.participants.count }} people joined</p>
+    </div>
+    <p class="feed-topic p-2 rounded-pill">{{room.topic}}</p>
+    </div>
+</div>
+
+{% endfor %}
+
+</div>

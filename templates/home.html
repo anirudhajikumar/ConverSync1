@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+
+    
+    <style>
+      
+        
+
+    </style>
+</head>
+<body>
+{% extends 'main.html' %}
+{% block content %}
+<div class="small-content d-lg-none" style="overflow-x: hidden;">
+<div class="small-search d-flex flex-column p-4 ">
+
+<form action="{% url 'home' %}" method="GET" class="">
+                <input type="text" name="q" placeholder="  Search rooms... " class="w-100 rounded-pill">
+</form>
+
+</div>
+<div class="p-4 small-buttons d-flex justify-content-evenly mb-5">
+<div><a href="{% url 'topic' %}" class="submit-button p-3 rounded-5">Explore topics</a></div>
+</div>
+
+</div>
+<div class="home-container">
+    
+        <div class="container-fluid">
+
+        <div class="row">
+        <div class="browse-topics col-3">
+            {% include 'topics_component.html' %} 
+        </div>
+
+        <div class="room-list col-lg-6">
+            <h3 class="mt-md-5 mx-2 main-text">STUDY ROOM</h3>
+            <p class="sub-text mx-2">{{room_count}} Rooms available</p>
+            <br>
+            <a href="/create-room/" class="createbutton p-3 mx-2 rounded">Create Room</a>
+
+        
+            
+            {% include 'feed_component.html'  %}
+        </div>
+
+        <div class="activities col-3">
+            {% include 'activity_component.html' %}
+        </div>
+        </div>
+
+        </div>
+
+</div>
+{% endblock content %}
+</body>
+</html>

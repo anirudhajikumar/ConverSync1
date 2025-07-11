@@ -1,0 +1,84 @@
+
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+  <div class="row p-4">
+    
+    <!-- Chatbox section -->
+    <div class="col-lg-8" >
+      <div class="content-box chatbox h-100">
+        <h2 class="recent-h">STUDY ROOM</h2>
+        <div class= "p-4">
+        <h2 class="usertag">{{ room.name }}</h2>
+        <p class="hosted">{{ room.description }}</p>
+        
+        <h5 class="hosted">HOSTED BY</h5>
+        <small class="usertag">@{{room.host}}</small>
+        </div>
+        <div class="comment-wrapper rounded-3 m-1 mx-2">
+          {% for message in room_messages %}
+          <div class="room-message mt-0 mt-lg-2 mx-1 p-2">
+            {% if request.user == message.user %}
+            <div class="mb-2">
+            <a href="/delete-message/{{message.id}}">Delete</a>
+            </div>
+            {% endif %}
+            <div class="d-flex align-items-center mb-2">
+            {% if message.user.profile and message.user.profile.profile_pic %}
+           
+                <a href="{% url 'profile-page' message.user.id %}"><img src="{{ message.user.profile.profile_pic.url }}" class="pfp-img rounded-circle p-1" width="40" height="40" style="object-fit: cover;">
+                </a> 
+            {% else %}
+        
+                <a href="{% url 'profile-page' message.user.id %}"><img src="{% static 'images/avatar-1577909_1280.png' %}" class="pfp-img rounded-circle p-1" width="40" height="40">
+                </a>
+            {% endif %}
+            
+            <div class="d-flex my-1">
+            <small><a href="{% url 'profile-page' message.user.id %}" class="usertag px-3">@{{message.user.username}}</a></small><small class="mx-5"> {{ message.created|timesince }} ago</small>
+            </div>
+            </div>
+            <p>{{message.body}}</p>
+          </div>
+          <hr>
+          {% endfor %}
+        </div>
+
+        {% if request.user.is_authenticated %}
+        <div class="comment-form">
+          <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" name="body" placeholder="Write your message here... " class="gen-input w-75 mx-4">
+          </form>
+        </div>
+        {% endif %}
+      </div>
+      
+      
+    </div>
+
+
+    <!-- Participants section -->
+    <div class="col-lg-4 mt-5 mt-lg-0">
+      <div class="content-box  mt-5 mt-lg-0 rounded ">
+        <h5 class="recent-h hosted">Participants ({{room.participants.count}} Joined )</h5>
+        {% for user in participants %}
+        <div>
+            
+          <p class="px-4 mt-3 pb-3">@{{user.username}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+{% endblock content %}
+

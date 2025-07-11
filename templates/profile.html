@@ -1,0 +1,74 @@
+
+{% extends 'main.html' %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+{% block content %}
+<div class="small-content d-lg-none" style="overflow-x: hidden;">
+<div class="small-search d-flex flex-column p-4 ">
+
+<form action="{% url 'home' %}" method="GET" class="">
+                <input type="text" name="q" placeholder="  Search rooms... " class="w-100 rounded-pill">
+</form>
+
+</div>
+<div class="p-4 small-buttons d-flex justify-content-evenly mb-5">
+<div><a href="" class="submit-button p-3 rounded-5">Explore topics</a></div>
+</div>
+
+</div>
+<div class="container-fluid">
+<div class="profile-container row">
+    <div class="col-3">
+        {% include 'topics_component.html' %}
+    </div>
+    <div class="col-lg-6 mt-3">
+
+        <div>
+
+        <div class="text-center text-md-start mx-2">
+        {% if user.profile %}
+        {% if user.profile.profile_pic %}
+        <img class="profile-pic pfp-img p-1 rounded-circle" src="{{ user.profile.profile_pic.url }}" >
+        {% else %}
+        <img class="profile-pic pfp-img p-1 rounded-circle" src="{% static 'images/avatar-1577909_1280.png' %}">
+        {% endif %}
+    
+        <h3 class="mt-3">{{ user.profile.name }}</h3>
+        <small class="usertag">@{{ user.username }}</small>
+        <p class="pt-3">{{ user.profile.bio }}</p>
+        {% else %}
+        <h1 class="usertag">@{{ user.username }}</h1>
+        {% endif %}
+
+        {% if user.id == request.user.id %}
+        <br>
+        <a href="{% url 'logout' %}" class="submit-button p-3 rounded-5">Log Out</a>
+        <a href="{% url 'edit-profile' %}" class="submit-button p-3 rounded-5 mx-4">Edit</a>
+        
+        {% endif %}
+        </div>
+        <br>
+        <br>
+        {% include 'feed_component.html' %}
+        </div>
+    </div>
+
+    <div class="col-3">
+        {% include 'activity_component.html' %}
+    </div>
+
+</div>
+</div>
+
+{% endblock content %}
+</body>
+</html>

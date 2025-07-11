@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center pt-5">
+<div class="content-box rounded mt-5">
+<h3 class="recent-h">Delete</h3>
+<form method="POST" action="" class="p-5">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{obj}}?"</p>
+    <a href="{{request.META.HTTP_REFERER}}">Go back</a>
+    <input type="submit" value="Confirm" class="form-control">
+</form>
+</div>
+</div>
+
+{% endblock content %}
+</body>
+</html>

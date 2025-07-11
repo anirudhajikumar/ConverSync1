@@ -1,0 +1,263 @@
+
+@font-face {
+    font-family: cascadiaItalic;
+    src: url('CalSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: outfitB;
+    src: url('Outfit-Regular.ttf');
+}
+*{
+    font-family: outfitB;
+    scrollbar-width: thin;
+    scrollbar-color: #151824 #323952;
+    box-sizing: border-box;
+}
+
+
+
+html, body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    max-width: 100%;
+    background-color: #151824;
+    color: #f1f1e6;
+
+}
+.navigation{
+    width: 100%;
+    background-color: #262a3c79;
+    height:120px;
+    color: #f1f1e6;
+    position:sticky;
+    top: 0; 
+
+}
+
+.navigation input{
+    background-color: #2d3247;
+    border: none;
+    height: 70px;
+    width: 500px;
+    border-radius: 5px;
+    color:#f1f1e6;
+}
+
+input:focus{
+    outline: none;
+}
+.feed-topic{
+    background-color: #5a6285;
+    border-radius: 10px;
+    border: none;
+    color: #f1f1e6;
+}
+.small-search{
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.small-search input{
+     background-color: #2d3247;
+    border: none;
+    height: 70px;
+    width: 420px;
+    border-radius: 5px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+.feed-component .feed-element{
+    background-color: #2d3247;
+    color: #f1f1e6;
+}
+
+.createbutton{
+    background-color: #00BED7;
+    color: #151824;
+}
+
+.createbutton:hover{
+    background-color: #009fb4;
+    transition: 0.2s ease;
+}
+
+.comment-wrapper{
+    height: 400px;
+}
+.room-message{
+    border-left: 2px solid #262A3C;
+    font-size: 13px;
+}
+.room-message:hover{
+    border-left: 2px solid #e983764f;
+    transition: 0.5s ease;
+}
+.activity-component{
+    background-color: #2d3247;
+    color: #f1f1e6;
+}
+
+.recent-h {
+    background-color: #3d445f;
+    width: 100%;
+    margin: 0; /* Remove unwanted margin */
+    padding: 1rem 1.5rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: block;
+}
+
+.message-element{
+    border: 2px solid #48516e;
+}
+.message-element:hover{
+    border: 2px solid #48516e;
+    background-color: #48516e;
+    transition: 0.2s ease;
+}
+
+.content-box{
+    background-color: #262A3C;
+}
+
+.nav-drop{
+    color: #f1f1e6a1;
+    background-color: #262A3C;
+}
+.nav-drop-content{
+    color: #f1f1e6a1;
+    background-color: #262A3C;
+}
+
+.nav-drop:hover{
+    color: #f1f1e6a1;
+    background-color: #262A3C;
+    transition: 0.2s ease;
+}
+.nav-drop-content:hover{
+    color: #f1f1e6a1;
+    background-color: #292d41;
+    transition: 0.2s ease;
+}
+a.topic-count{
+    background-color: #3e445e;
+  
+}
+img.profile-pic{
+    image-orientation: from-image;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    
+
+}
+.drop-down-profile{
+    background-color: inherit;
+    border: none;
+    color: #f1f1e6a1
+}
+.room-cbox{
+    height:725px;
+}
+.form-control{
+    background-color: #2d3247;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    color: #f1f1e6;
+    margin-bottom: 5px;
+}
+
+input.form-control::placeholder{
+    color:#f1f1e669;
+}
+
+.modal-opener{
+    width: 100px;
+}
+.topic-list{
+    height: 450px;
+    overflow-y: scroll;
+}
+.pfp-img{
+    border: 2px solid #009fb4;
+}
+
+.hosted{
+    color: #f1f1e6bb;
+}
+.form-control:focus{
+    background-color: #2d3247;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: #f1f1e6;
+    transition: 0.2s ease;
+
+}
+.chatbox{
+
+}
+
+.comment-wrapper{
+    background-color: #1f222b;
+    overflow-y: scroll;
+}
+
+.gen-input{
+    background-color: #2d3247;
+    border: none;
+    height: 70px;
+    width: 500px;
+    border-radius: 5px;
+    color:#f1f1e6
+}
+
+
+
+.submit-button{
+    color: #f1f1e6;
+    border: 1px solid #f1f1e6;
+    background-color: #262A3C;
+}
+
+.submit-button:hover{
+    color: #2d3247;
+    background-color: #f1f1e6;
+    border: 1px solid #f1f1e6;
+    transition: 0.2s ease;
+}
+.navigation input::placeholder{
+    color:#f1f1e669;
+}
+.chatbox .usertag{
+    color: #e98376;
+    font-family: cascadiaItalic;
+}
+
+.usertag{
+    color: #6cb3bb;
+}
+
+.main-text{
+    color: #f1f1e6a9;
+}
+
+.sub-text{
+    color: #f1f1e67a;
+}
+
+.post-detail{
+    display: flex;
+    justify-content: space-between;
+}

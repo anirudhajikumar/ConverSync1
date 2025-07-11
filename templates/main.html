@@ -1,0 +1,57 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{title}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "style/main.css" %}">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" 
+    referrerpolicy="no-referrer" />
+</head>
+<body>
+{% include 'navbar.html' %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+ <div class="main-wrapper" style="overflow-x: hidden; max-width: 100vw;">
+        {% block content %}
+        {% endblock content %}
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous">
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/2.0.0/cropper.min.js" 
+        integrity="sha512-oauBT2O30tZXAL0UZqmigDAGOBg2GlaKlf6dOBz1V1Y8bBvdHcVzF4lZCCb9dIB1L+B96xDgO+Jy4NR4OwR8fw==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    [...document.querySelectorAll('*')].forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.right > window.innerWidth || rect.left < 0) {
+        console.log('🟥 Overflowing element:', el, rect);
+        el.style.outline = '2px solid red';  // visually highlight it on screen
+        }
+    });
+    });
+</script>
+
+</body>
+</html>

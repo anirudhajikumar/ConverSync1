@@ -1,0 +1,11 @@
+{%load static%}
+<link rel="stylesheet" href = "{% static 'style/main.css' %}">
+<div class="topics-component rounded d-none d-lg-flex flex-column mt-5 px-5">
+<h3 class="text-center mt-3">BROWSE TOPICS</h3>
+        {% for topic in topics %}
+        <div class="topic-elements mt-5 d-flex justify-content-between align-items-center">
+            <a href="{%url 'home'%}?q={{topic.name}}">{{topic.name}}</a> <a href="" class="topic-count d-flex align-items-center justify-content-center p-4">{{topic.room_count}}</a>
+        </div>
+        {% endfor %}
+        <a href="{% url 'topic' %}" class="mt-5 w-50 p-2 rounded-pill form-control">See more..</a>
+</div>

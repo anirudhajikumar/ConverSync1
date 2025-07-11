@@ -1,0 +1,31 @@
+{%load static%}
+<div class="navigation d-flex justify-content-around align-items-center">
+    
+        <a href="/">
+            LOGO
+        </a>
+        <form action="{% url 'home' %}" method="GET" class="d-none d-lg-flex mx-5">
+                <input type="text" name="q" placeholder="  Search rooms... ">
+        </form>
+        {% if request.user.is_authenticated %}
+
+        <div class="dropdown">
+                <button class="drop-down-profile p-3 dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {% if request.user.profile and request.user.profile.profile_pic %}
+                                <img src="{{ request.user.profile.profile_pic.url }}" class="pfp-img rounded-circle p-1" width="50" height="50" style="object-fit: cover;">
+                        {% else %}
+                                <img src="{% static 'images/avatar-1577909_1280.png' %}" class="pfp-img rounded-circle p-1" width="50" height="50">
+                        {% endif %}
+                </button>
+                <div class="dropdown-menu nav-drop" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item nav-drop-content" href="{% url 'profile-page' request.user.id %}">Profile</a>
+                        <a class="dropdown-item nav-drop-content" href="{% url 'logout' %}">Log out</a>
+                </div>
+        </div>
+        {% else %}
+        <a href="{% url 'login' %}">LogIn</a>
+        {% endif %}
+
+        
+    
+</div>
