@@ -9,15 +9,29 @@
             
             <div class="message-element p-3 m-4 rounded-3">
 
-                {% if request.user == message.user %}
-                <a href="/delete-message/{{message.id}}" class="delete-button">Delete</a>
-                <br>
-                {% else %}
-            
-                {% endif %}
                 <div class = "post-detail py-3">
-                    
-                <small><a href="{% url 'profile-page' message.user.id %}" class="usertag">@{{message.user.username}}</a></small><small> {{ message.created|timesince }} ago</small>
+                <div class="d-flex">
+                {% if message.user.profile and message.user.profile.profile_pic %}
+                <a href="{% url 'profile-page' message.user.id %}">
+                <img src="{{ message.user.profile.profile_pic.url }}" class="pfp-img rounded-circle p-1" width="40" height="40" style="object-fit: cover;">
+                </a>
+                {% else %}
+                    <a href="{% url 'profile-page' message.user.id %}">
+                <img src="{% static 'images/avatar-1577909_1280.png' %}" class="pfp-img rounded-circle p-1" width="40" height="40">
+                    </a>
+                {% endif %}
+                <div class="d-flex flex-column mx-2">
+                <small><a href="{% url 'profile-page' message.user.id %}" class="usertag">@{{message.user.username}}</a></small><small class="message-time"> {{ message.created|timesince }} ago</small>
+                </div>
+                </div>
+                <div>
+                    {% if request.user == message.user %}
+                
+                    <a href="/delete-message/{{message.id}}" class="delete-button"><i class="fa-solid fa-xmark"></i></a>
+            
+                    {% endif %}
+                </div>
+        
                 </div>
                 <a href="{% url 'room' message.room.id %}">
                 <small>replied to {{ message.room }}</small>

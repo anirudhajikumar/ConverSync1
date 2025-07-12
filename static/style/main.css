@@ -16,7 +16,9 @@
 }
 
 
-
+.message-time{
+    color: #f1f1e6af;
+}
 html, body{
     margin: 0;
     padding: 0;

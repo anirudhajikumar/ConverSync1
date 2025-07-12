@@ -7,5 +7,5 @@
             <a href="{%url 'home'%}?q={{topic.name}}">{{topic.name}}</a> <a href="" class="topic-count d-flex align-items-center justify-content-center p-4">{{topic.room_count}}</a>
         </div>
         {% endfor %}
-        <a href="{% url 'topic' %}" class="mt-5 w-50 p-2 rounded-pill form-control">See more..</a>
+        <a href="{% url 'topic' %}" class="mt-5 w-50 p-2 rounded-pill form-control text-center py-3">See more..</a>
 </div>
