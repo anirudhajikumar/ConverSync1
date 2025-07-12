@@ -10,7 +10,7 @@
 
                 <h3 class="recent-h p-4 rounded text-center">Edit Profile</h3>
                 
-                <form method="POST" action="" enctype="multipart/form-data" class="p-5">
+                <form method="POST" action="" enctype="multipart-form/data" class="p-5">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <input type="submit" value="Submit" class="submit-button p-3 rounded-5">

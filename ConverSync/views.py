@@ -224,9 +224,8 @@ def editProfile(request):
     except Profile.DoesNotExist:
         profile = Profile.objects.create(user=user)
 
-    
     if request.method == 'POST':
-        form = editProfilePage(request.POST, request.FILES, instance=profile)  # ✅ FIXED
+        form = editProfilePage(request.POST, instance=profile)
         if form.is_valid():
             form.save()
             return redirect('home')
