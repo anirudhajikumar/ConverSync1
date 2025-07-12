@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import os.path
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -83,7 +84,9 @@ DATABASES = {
     }
 }
 
+DATABASES["default"] = dj_database_url.parse("postgresql://conversync_django_render_user:AB3sb46gtWUflAAfuMgL6nQf9A4mf3PZ@dpg-d1ov4c49c44c738258vg-a.oregon-postgres.render.com/conversync_django_render")
 
+#postgresql://conversync_django_render_user:AB3sb46gtWUflAAfuMgL6nQf9A4mf3PZ@dpg-d1ov4c49c44c738258vg-a.oregon-postgres.render.com/conversync_django_render
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
@@ -119,10 +122,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     BASE_DIR / 'static'
-# ]
-STATIC_ROOT = BASE_DIR / 'static'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+#STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
