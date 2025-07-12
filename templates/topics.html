@@ -10,8 +10,8 @@
 <div class="content-box col-10 col-md-8 col-lg-6 rounded mt-5 pb-4 topic-list">
 <h3 class="recent-h">TOPICS</h3>
 {% for topic in topics %}
-        <div class="topic-elements mt-5 d-flex justify-content-around align-items-center">
-            <a href="{%url 'home'%}?q={{topic.name}}">{{topic.name}}</a> <a href="" class="topic-count d-flex align-items-center justify-content-center p-4">{{topic.room_count}}</a>
+        <div class="topic-elements mt-4 mt-lg-5 d-flex justify-content-around align-items-center">
+            <a href="{%url 'home'%}?q={{topic.name}}">{{topic.name}}</a> <a href="" class="topic-count d-flex align-items-center justify-content-center p-3 p-lg-4">{{topic.room_count}}</a>
         </div>
 {% endfor %}
 </div>

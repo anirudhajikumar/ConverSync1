@@ -12,11 +12,11 @@
 <div class="d-flex justify-content-center align-items-center">
 <div class="content-box m-5 d-flex flex-column align-items-center justify-content-center pb-5 rounded">
     <h3 class="recent-h">LOG IN</h3>
-    <form method="POST" action="" class="p-5 d-flex flex-column" >
+    <form method="POST" action="" class="p-4 p-lg-5 d-flex flex-column" >
         {% csrf_token %}
         <label>Username</label>
         <input type="text" name="username" placeholder="Enter Username" class="form-control p-3" style="color:rgba(241, 241, 230, 0.59);">
-        <label class="mt-5">Password</label>
+        <label class="mt-4 mt-lg-5">Password</label>
         <input type="password" name="password" placeholder="Enter Password" class="form-control p-3 px-5" style="color:rgba(241, 241, 230, 0.59);">
 
         <input type="submit" value="login" class="form-control mt-4 rounded-pill">
@@ -29,7 +29,7 @@
 <div class="d-flex justify-content-center">
 <div class="content-box rounded col-10 col-sm-9 col-md-7 col-lg-4 m-4">
     <h3 class="recent-h">REGISTER</h3>
-    <form method="POST" action="" class="p-5">
+    <form method="POST" action="" class=" p-4 p-lg-5 h6">
         {% csrf_token %}
         {{ form.as_p }}
 

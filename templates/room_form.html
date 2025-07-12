@@ -8,9 +8,9 @@
         <div class="col-lg-6 col-md-10 col-sm-12">
             <div class="content-box room-cbox mt-5 rounded pb-4 d-flex flex-column">
 
-                <h3 class="recent-h p-4  text-center">Create Room</h3>
+                <h3 class="recent-h p-4 text-center">Create Room</h3>
 
-                <form method="POST" action="" class="p-5">
+                <form method="POST" action="" class="p-4 p-lg-5 h6">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <input type="submit" value="Submit" class="submit-button p-3 rounded-5">

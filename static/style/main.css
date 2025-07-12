@@ -261,3 +261,6 @@ input.form-control::placeholder{
     display: flex;
     justify-content: space-between;
 }
+.no-footer{
+    height: 120px;
+}
