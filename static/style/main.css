@@ -16,6 +16,7 @@
 }
 
 
+
 .message-time{
     color: #f1f1e6af;
 }
@@ -99,6 +100,7 @@ a{
 .room-message{
     border-left: 2px solid #262A3C;
     font-size: 13px;
+    overflow-x: hidden;
 }
 .room-message:hover{
     border-left: 2px solid #e983764f;
