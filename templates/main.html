@@ -44,15 +44,7 @@
         crossorigin="anonymous" 
         referrerpolicy="no-referrer"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    [...document.querySelectorAll('*')].forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.right > window.innerWidth || rect.left < 0) {
-        console.log('🟥 Overflowing element:', el, rect);
-        el.style.outline = '2px solid red';  // visually highlight it on screen
-        }
-    });
-    });
+    
 </script>
 
 </body>
