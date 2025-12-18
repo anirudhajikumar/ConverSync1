@@ -88,7 +88,6 @@ DATABASES = {
     )
 }
 
-DATABASES["default"] = dj_database_url.parse("postgresql://conversync_django_render_user:AB3sb46gtWUflAAfuMgL6nQf9A4mf3PZ@dpg-d1ov4c49c44c738258vg-a.oregon-postgres.render.com/conversync_django_render")
 
 #postgresql://conversync_django_render_user:AB3sb46gtWUflAAfuMgL6nQf9A4mf3PZ@dpg-d1ov4c49c44c738258vg-a.oregon-postgres.render.com/conversync_django_render
 # Password validation
